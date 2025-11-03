@@ -1,7 +1,8 @@
-const list = document.getElementById('list');
-let itemCount = 10; // initial items
+const list = document.getElementById('infi-list'); // ✅ match the HTML id
 
-// Function to create and add items
+let itemCount = 10; // start with 10 items
+
+// Function to add list items
 function addItems(count) {
   for (let i = 1; i <= count; i++) {
     const li = document.createElement('li');
@@ -10,13 +11,12 @@ function addItems(count) {
   }
 }
 
-// Add 10 default items on page load
+// Add initial 10 items
 addItems(itemCount);
 
-// Detect when user reaches bottom of the page
+// Add 2 more when scrolled to bottom
 window.addEventListener('scroll', () => {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-    // Add 2 more items when scrolled to bottom
     addItems(2);
   }
 });
